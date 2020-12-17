@@ -6,7 +6,7 @@ const Logo: React.FC = () => {
   return (
     <Link href="/">
       <a>
-        <Image src="/assets/logo.png" alt="logo" width={220} height={40} />
+        <Image src="/assets/logo.png" alt="logo" width={220} height={60} />
       </a>
     </Link>
   );
