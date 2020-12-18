@@ -1,11 +1,11 @@
 import React from 'react';
-import styles from '../../../../styles/Header.module.css';
+import styles from '../../../styles/Header.module.css';
 import { InputGroup, FormControl, Row, Col } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faShoppingCart, faUserCircle } from '@fortawesome/free-solid-svg-icons';
-import Logo from '../../Logo';
+import Logo from '../../Shared/Logo';
 
-const CustomerHeader: React.FC = () => {
+const DashboardHeader: React.FC = () => {
   return (
     <Row className={styles.background}>
       <Col md={8} className="mt-2">
@@ -41,4 +41,4 @@ const CustomerHeader: React.FC = () => {
   )
 }
 
-export default CustomerHeader;
+export default DashboardHeader;
