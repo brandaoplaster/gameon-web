@@ -1,5 +1,5 @@
 import React from 'react';
-import MainComponent from '../../components/Shared/MainComponent';
+import MainComponent from '../../components/Storefront/MainComponent';
 
 const Storefront: React.FC = () => {
   return (

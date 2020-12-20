@@ -1,12 +1,13 @@
 import React from 'react';
-import DashboardHeader from '../../Dashboard/Header';
+import Footer from '../Footer';
 
 const MainComponent: React.FC = ({ children }) => {
   return (
     <div className="d-flex flex-column sticky-footer-wrapper">
-      <DashboardHeader />
 
       <div className="container flex-fill">{children}</div>
+
+      <Footer />
     </div>
   );
 };
