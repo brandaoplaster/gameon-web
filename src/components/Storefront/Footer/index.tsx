@@ -13,7 +13,7 @@ const StorefrontFooter: React.FC = () => {
         <Row>
           <Col lg={7} md={12}>
             <Row>
-              <Col lg={3} md={12} className="mb-4 mb-lg-0">
+              <Col lg={5} md={12} className="mb-4 mb-lg-0">
                 Acompanhe-nos
               </Col>
 
@@ -79,7 +79,6 @@ const StorefrontFooter: React.FC = () => {
             <Image src="/assets/logo-bootcamp.png" alt="Logo Bootcamp" width={240} height={70} />
           </Col>
         </Row>
-
       </Col>
     </footer>
   )
