@@ -1,8 +1,9 @@
 import React from 'react';
 import Head from 'next/head';
+import MainComponet from '../components/Storefront/MainComponent';
 
 const Home: React.FC = () => (
-  <div>
+  <MainComponet>
     <Head>
       <title>Create Next App</title>
     </Head>
@@ -10,7 +11,7 @@ const Home: React.FC = () => (
     <main>
       <h1>Welcome to</h1>
     </main>
-  </div>
+  </MainComponet>
 );
 
 export default Home;
