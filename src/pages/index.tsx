@@ -1,17 +1,19 @@
 import React from 'react';
-import Head from 'next/head';
+import { useRouter } from 'next/router';
 import MainComponet from '../components/Storefront/MainComponent';
 
-const Home: React.FC = () => (
-  <MainComponet>
-    <Head>
-      <title>Create Next App</title>
-    </Head>
+const Home: React.FC = () => {
+  const router = useRouter();
 
-    <main>
+  return (
+    <MainComponet>
+      <button onClick={() => router.push('/Auth/Login')}>
+        Login
+      </button>
+
       <h1>Welcome to</h1>
-    </main>
-  </MainComponet>
-);
+    </MainComponet>
+  )
+}
 
 export default Home;
