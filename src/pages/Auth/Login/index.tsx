@@ -1,4 +1,5 @@
 import LoginForm from '../../../components/LoginForm';
+import SignUpForm from '../../../components/SignUpForm';
 import MainComponent from '../../../components/Storefront/MainComponent';
 
 const Login: React.FC = () => {
@@ -8,6 +9,8 @@ const Login: React.FC = () => {
         <h2>Entrar</h2>
 
         <LoginForm titlePhrase="Acessar minha conta" buttonPhrase="ACESSAR" />
+
+        <SignUpForm titlePhrase="Criar nova conta" buttonPhrase="CRIAR" />
 
       </div>
     </MainComponent>
