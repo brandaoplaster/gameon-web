@@ -1,8 +1,14 @@
 import { useState, useEffect, useRef } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
 import { InputGroup, FormControl, Button, Row, Col } from 'react-bootstrap';
 import BlueBackground from '../Shared/BlueBackground';
 import Link from 'next/link';
+import { toast } from 'react-toastify';
+import { setLoggedUser } from '../../store/modules/auth/reducer';
+import UsersService from '../../services/users';
+import AuthState from '../../dtos/AuthState';
+import User from '../../dtos/User';
 interface LoginProps {
   titlePhrase: string;
   buttonPhrase: string;
@@ -12,11 +18,49 @@ const LoginForm: React.FC<LoginProps> = ({ titlePhrase, buttonPhrase }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const passwordRef = useRef(null);
+
+  const loggedUser: User = useSelector((state: AuthState) => state.auth.loggedUser);
+
   const router = useRouter();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if(loggedUser) {
+      setEmail(loggedUser.email);
+      if(passwordRef && passwordRef.current) {
+        passwordRef.current.focus();
+      }
+    }
+  }, [loggedUser])
+
+  const handleSubmit = async (evt: React.FormEvent): Promise<void> => {
+    evt.preventDefault();
+
+    try {
+      const response = await UsersService.signIn({ email, password });
+
+      const { id, email: userEmail, name, profile } = response.data.data;
+
+      const user = {
+        id,
+        name,
+        email: userEmail,
+        profile: profile
+      };
+
+      dispatch(setLoggedUser(user));
+
+      toast.info('Login realizado com sucesso!');
+
+      router.push(user.profile === 'admin' ? '/Admin/' : '/')
+    } catch (err) {
+      toast.error('E-mail ou senha inválidos!');
+    }
+  }
 
   return (
 
-    <form onSubmit={() => {}}>
+    <form onSubmit={handleSubmit}>
       <Row>
         <Col lg={{ span: 6, offset: 3 }} md={{ span: 8, offset: 2 }}>
           <BlueBackground>
